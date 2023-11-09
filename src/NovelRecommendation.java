@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class NovelRecommendation {
     private String name;
     private String language;
-    private int chapters;
-    public NovelRecommendation(String novelName, String novelLanguage, int novelChapters)
+    private double chapters;
+    public NovelRecommendation(String novelName, String novelLanguage, double novelChapters)
     {
     name = novelName;
     language = novelLanguage;
@@ -25,32 +25,38 @@ public class NovelRecommendation {
 
     public String getNovelFromWords(){
         if (name.length() > 42){
-            String bigNovel = "recommend Novel based on title inputted: " + longTitle[randomLongNovel];
+            String bigNovel = "The recommended novel based on title inputted is: " + longTitle[randomLongNovel] + ".\n";
             return bigNovel;
         }
         else {
-            String smallNovel = "recommend Novel based on title inputted: " + shortTitle[randomShortNovel];
+            String smallNovel = "The recommended novel based on title inputted is: " + shortTitle[randomShortNovel] + ".\n";
             return smallNovel;
         }
     }
     public String getNovelFromLanguage() {
         if (language.equals("chinese")) {
-            String chineseRec = "recommend Novel based on language inputted: " + cNovels[randomCNovel];
+            String chineseRec = "The recommended novel based on language inputted is: " + cNovels[randomCNovel] +".\n";
             return chineseRec;
         } else if (language.equals("korean")) {
-            String koreanRec = "recommend novel based on language inputted: " + kNovels[randomKNovel];
+            String koreanRec = "The recommended novel based on language inputted is: " + kNovels[randomKNovel] + ".\n";
             return koreanRec;
         }
-        return "Sorry, we are not accepting this language at the moment";
+        return "We are not accepting this language at the moment.\n";
     }
     public String getNovelFromChapters(){
         if (chapters >= 700){
-            String moreChapters = "recommend Novel based on chapters inputted: " + longChapters[randomFillerNovel];
+            String moreChapters = "The recommended novel based on chapters inputted is: " + longChapters[randomFillerNovel] + ".\n";
             return moreChapters;
-        } else if (chapters <= 250){
-            String lessChapters = "recommend novel based on chapters inputted: " + shortChapters[randomContentNovel];
+        } else if (chapters <= 250 && chapters > 1){
+            String lessChapters = "The recommended novel based on chapters inputted is: " + shortChapters[randomContentNovel] + ".\n";
             return lessChapters;
+        } else if (chapters == 1) {
+            String oneShot = "What novel has one chapter? This isn't a oneshot recommendation system!";
+            return oneShot;
+        } else if (chapters <= 0) {
+            String imagination = "How do you read something with no chapters? You must be out of your mind!";
+            return imagination;
         }
-        return "Peculiar tastes for one that reads webnovels. Don't like long ones, don't like short ones.";
+        return "You have a peculiar taste for one that reads webnovels. You don't like long ones, yet you don't like short ones. Or maybe your favorite is one of a kind.\n";
     }
 }
