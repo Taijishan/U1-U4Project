@@ -4,18 +4,18 @@ public class NovelRecommendation {
     private String name;
     private String language;
     private double chapters;
+    private String [] cNovels = {"My House of Horrors", "Lord of Mysteries", "The Legendary Mechanic", "Worlds' Apocalypse Online", "Deep Sea Embers", "I am the Fated Villain"};
+    private String [] kNovels = {"The Remarried Empress", "Solo Leveling", "Valhalla Saga", "I became a Mafia in the Academy", "The Founder of the Great Financial Family"};
+    private String [] longTitle = {"Clearing the Game at the End of the World", "Reincarnation of the Strongest Sword God", "The Deeds of an Extremely Arrogant Villain Aristocrat", "Weird Live Broadcast: I can deduce Endlessly", "i have a mansion in the post-apocalyptic world"};
+    private String [] shortTitle = {"Archean Eon Art", "Underworld Player", "Deep Sea Embers", "Valhalla Saga", "Overgeared", "Grasping Evil"};
+    private String [] longChapters = {"Cosmic Professional Gladiator", "The First Order", "End of the Magic Era", "Martial World", "Emperor's Domination", "Cultivation Chat Group"};
+    private String [] shortChapters = {"The Regressor and the Blind Saint", "The Priest of Corruption", "This Game is too Realistic"};
     public NovelRecommendation(String novelName, String novelLanguage, double novelChapters)
     {
     name = novelName;
     language = novelLanguage;
     chapters = novelChapters;
     }
-    String [] cNovels = {"My House of Horrors", "Lord of Mysteries", "The Legendary Mechanic", "Worlds' Apocalypse Online", "Deep Sea Embers", "I am the Fated Villain"};
-    String [] kNovels = {"The Remarried Empress", "Solo Leveling", "Valhalla Saga", "I became a Mafia in the Academy"};
-    String [] longTitle = {"Clearing the Game at the End of the World", "Reincarnation of the Strongest Sword God", "The Deeds of an Extremely Arrogant Villain Aristocrat", "Weird Live Broadcast: I can deduce Endlessly"};
-    String [] shortTitle = {"Archean Eon Art", "Underworld Player", "Deep Sea Embers", "Valhalla Saga", "Overgeared", "Grasping Evil"};
-    String [] longChapters = {"Cosmic Professional Gladiator", "The First Order", "End of the Magic Era", "Martial World"};
-    String [] shortChapters = {"The Regressor and the Blind Saint", "The Priest of Corruption", "This Game is too Realistic"};
     int randomCNovel = (int) (Math.random() * cNovels.length);
     int randomKNovel = (int) (Math.random() * kNovels.length);
     int randomLongNovel = (int) (Math.random() * longTitle.length);
@@ -41,7 +41,7 @@ public class NovelRecommendation {
             String koreanRec = "The recommended novel based on language inputted is: " + kNovels[randomKNovel] + ".\n";
             return koreanRec;
         }
-        return "We are not accepting this language at the moment.\n";
+        return "Regarding the language you inputting, we are not accepting this language at the moment.\n";
     }
     public String getNovelFromChapters(){
         if (chapters >= 700){
@@ -51,10 +51,10 @@ public class NovelRecommendation {
             String lessChapters = "The recommended novel based on chapters inputted is: " + shortChapters[randomContentNovel] + ".\n";
             return lessChapters;
         } else if (chapters == 1) {
-            String oneShot = "What novel has one chapter? This isn't a oneshot recommendation system!";
+            String oneShot = "Your novel has one chapter? What novel has one chapter? This isn't a oneshot recommendation system!\n";
             return oneShot;
         } else if (chapters <= 0) {
-            String imagination = "How do you read something with no chapters? You must be out of your mind!";
+            String imagination = "Your novel has negative chapters? You think you're funny? How do you read something with no chapters? You must be out of your mind!\n";
             return imagination;
         }
         return "You have a peculiar taste for one that reads webnovels. You don't like long ones, yet you don't like short ones. Or maybe your favorite is one of a kind.\n";
