@@ -10,7 +10,7 @@ public class NovelRecommendationRunner {
             if (userNovel.equals("nvm")) {
                 break;
             }
-            System.out.println("Please enter the original language of the novel(Chinese/Korean): ");
+            System.out.println("If your novel's original language is not here, we apologize. \nPlease enter the original language of the novel(languages accepted at this moment: Chinese/Korean/English): ");
             String userLanguage = s.nextLine();
             userLanguage = userLanguage.toLowerCase();
             System.out.println("Please enter the amount of chapters (in numeric form) the novel has: ");

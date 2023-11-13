@@ -6,10 +6,11 @@ public class NovelRecommendation {
     private double chapters;
     private String [] cNovels = {"My House of Horrors", "Lord of Mysteries", "The Legendary Mechanic", "Worlds' Apocalypse Online", "Deep Sea Embers", "I am the Fated Villain"};
     private String [] kNovels = {"The Remarried Empress", "Solo Leveling", "Valhalla Saga", "I became a Mafia in the Academy", "The Founder of the Great Financial Family"};
+    private String [] EngNovels = {"Beware of Chicken", "Vainqueur the Dragon", "The Perfect Run", "1453: Revival of Byzantium", "System vs Rebirth", "Realm of Myths and Legends", "The Wandering Inn"};
     private String [] longTitle = {"Clearing the Game at the End of the World", "Reincarnation of the Strongest Sword God", "The Deeds of an Extremely Arrogant Villain Aristocrat", "Weird Live Broadcast: I can deduce Endlessly", "i have a mansion in the post-apocalyptic world"};
     private String [] shortTitle = {"Archean Eon Art", "Underworld Player", "Deep Sea Embers", "Valhalla Saga", "Overgeared", "Grasping Evil"};
     private String [] longChapters = {"Cosmic Professional Gladiator", "The First Order", "End of the Magic Era", "Martial World", "Emperor's Domination", "Cultivation Chat Group"};
-    private String [] shortChapters = {"The Regressor and the Blind Saint", "The Priest of Corruption", "This Game is too Realistic"};
+    private String [] shortChapters = {"The Regressor and the Blind Saint", "The Priest of Corruption", "This Game is too Realistic", "Dimensional Sovereign", "I reincarnated for nothing"};
     public NovelRecommendation(String novelName, String novelLanguage, double novelChapters)
     {
     name = novelName;
@@ -18,6 +19,7 @@ public class NovelRecommendation {
     }
     int randomCNovel = (int) (Math.random() * cNovels.length);
     int randomKNovel = (int) (Math.random() * kNovels.length);
+    int randomEngNovel = (int) (Math.random() * EngNovels.length);
     int randomLongNovel = (int) (Math.random() * longTitle.length);
     int randomShortNovel = (int) (Math.random() * shortTitle.length);
     int randomFillerNovel = (int) (Math.random() * longChapters.length);
@@ -40,6 +42,9 @@ public class NovelRecommendation {
         } else if (language.equals("korean")) {
             String koreanRec = "The recommended novel based on language inputted is: " + kNovels[randomKNovel] + ".\n";
             return koreanRec;
+        } else if (language.equals("english")) {
+            String englishRec = "The recommended novel based on language inputted is: " + EngNovels[randomEngNovel] + ".\n";
+            return englishRec;
         }
         return "Regarding the language you inputting, we are not accepting this language at the moment.\n";
     }
@@ -53,9 +58,12 @@ public class NovelRecommendation {
         } else if (chapters == 1) {
             String oneShot = "Your novel has one chapter? What novel has one chapter? This isn't a oneshot recommendation system!\n";
             return oneShot;
-        } else if (chapters <= 0) {
+        } else if (chapters < 0) {
             String imagination = "Your novel has negative chapters? You think you're funny? How do you read something with no chapters? You must be out of your mind!\n";
             return imagination;
+        } else if (chapters == 0) {
+            String zero = "Your novel has zero chapters? How'd the author write the book?\n";
+            return zero;
         }
         return "You have a peculiar taste for one that reads webnovels. You don't like long ones, yet you don't like short ones. Or maybe your favorite is one of a kind.\n";
     }
