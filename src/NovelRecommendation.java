@@ -4,6 +4,13 @@ public class NovelRecommendation {
     private String name;
     private String language;
     private double chapters;
+    private String song;
+    public void setSong(String theSong){
+        song = theSong;
+    }
+    public String getSong(){
+        return song;
+    }
     private String [] cNovels = {"My House of Horrors", "Lord of Mysteries", "The Legendary Mechanic", "Worlds' Apocalypse Online", "Deep Sea Embers", "I am the Fated Villain"};
     private String [] kNovels = {"The Remarried Empress", "Solo Leveling", "Valhalla Saga", "I became a Mafia in the Academy", "The Founder of the Great Financial Family"};
     private String [] EngNovels = {"Beware of Chicken", "Vainqueur the Dragon", "The Perfect Run", "1453: Revival of Byzantium", "System vs Rebirth", "Realm of Myths and Legends", "The Wandering Inn"};
@@ -17,6 +24,7 @@ public class NovelRecommendation {
     language = novelLanguage;
     chapters = novelChapters;
     }
+
     int randomCNovel = (int) (Math.random() * cNovels.length);
     int randomKNovel = (int) (Math.random() * kNovels.length);
     int randomEngNovel = (int) (Math.random() * EngNovels.length);
