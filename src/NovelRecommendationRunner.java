@@ -23,10 +23,10 @@ public class NovelRecommendationRunner {
             System.out.println(recommend.getNovelFromLanguage());
             System.out.println(recommend.getNovelFromWords());
             System.out.println(recommend.getNovelFromChapters());
-            System.out.println("Recommendations are here!! Please enter your favorite song: ");
-            recommend.setSong(s.nextLine());
-            System.out.println("Your favorite song is: " + recommend.getSong() + ". May your song pair well with the recommendations you have gotten.");
-            System.out.println("Wow, you stuck til the very end? As you haven't quit this program, you can go for another run!\n");
+            System.out.println("Enter your name: ");
+            recommend.setUserName(s.nextLine());
+            System.out.println("Hello " + recommend.getUserName() + ". You should listen to these songs while reading this novel!\n" + recommend.getMusicRecs());
+            System.out.println("I'm impressed. You completed the first iteration of this program. Now, you can go for another run!\n");
         }
     }
 }

@@ -1,23 +1,38 @@
 import java.util.ArrayList;
 
+/**
+ * The NovelRecommendation class represents a NovelRecommendation.
+ * A NovelRecommendation must include a name, a language, as well as a set amount of chapters.
+ */
 public class NovelRecommendation {
     private String name;
     private String language;
     private double chapters;
-    private String song;
-    public void setSong(String theSong){
-        song = theSong;
+    private String userName;
+    public void setUserName(String yourName){
+        userName = yourName;}
+    public String getUserName(){
+        return userName;
     }
-    public String getSong(){
-        return song;
-    }
+    private String [] favSongs = {"Can't Hold us by Macklemore", "Ordinary Path(cover) by Jordan Chan", "Song of the Isle of Sorrow by Onmyoji", "Don't go by Henry", "spiral tunes by Mori Calliope", "Endless Love by Jackie Chan and Kim Hee Seon"};
+    private String [] favSongsPt2 = {"The Greatest Show by Hugh Jackman", "Victory by Two Steps from Hell", "Timelapse; Reverse by Corsak", "PS5 by salem ilese and TXT", "Back Here Again by EggPlantEgg", "Gotta Talk to U by Seungri"};
+    private String [] favSongsPt3 = {"Ya Gamila by Namewee", "Red Swan by Yoshiki", "Monsters(cover) by Zhou Shen", "Delusion by Singyeo", "Idol by Yoasobi", "Sick and Tired by Lewsz", "Every Breath You Take by The Police", "flawless by Joon"};
     private String [] cNovels = {"My House of Horrors", "Lord of Mysteries", "The Legendary Mechanic", "Worlds' Apocalypse Online", "Deep Sea Embers", "I am the Fated Villain"};
     private String [] kNovels = {"The Remarried Empress", "Solo Leveling", "Valhalla Saga", "I became a Mafia in the Academy", "The Founder of the Great Financial Family"};
-    private String [] EngNovels = {"Beware of Chicken", "Vainqueur the Dragon", "The Perfect Run", "1453: Revival of Byzantium", "System vs Rebirth", "Realm of Myths and Legends", "The Wandering Inn"};
+    private String [] EngNovels = {"Ashes of Heaven", "Beware of Chicken", "Vainqueur the Dragon", "The Perfect Run", "1453: Revival of Byzantium", "System vs Rebirth", "Realm of Myths and Legends", "The Wandering Inn"};
     private String [] longTitle = {"Clearing the Game at the End of the World", "Reincarnation of the Strongest Sword God", "The Deeds of an Extremely Arrogant Villain Aristocrat", "Weird Live Broadcast: I can deduce Endlessly", "i have a mansion in the post-apocalyptic world"};
     private String [] shortTitle = {"Archean Eon Art", "Underworld Player", "Deep Sea Embers", "Valhalla Saga", "Overgeared", "Grasping Evil"};
     private String [] longChapters = {"Cosmic Professional Gladiator", "The First Order", "End of the Magic Era", "Martial World", "Emperor's Domination", "Cultivation Chat Group"};
     private String [] shortChapters = {"The Regressor and the Blind Saint", "The Priest of Corruption", "This Game is too Realistic", "Dimensional Sovereign", "I reincarnated for nothing"};
+
+    /**
+     * Constructor for the NovelRecommendation class. This creates a new instance of a NovelRecommendation
+     * given the below parameters.
+     *
+     * @param novelName represents the name of the novel
+     * @param novelLanguage represents the language of the novel
+     * @param novelChapters represents the amount of chapters in the novel
+     */
     public NovelRecommendation(String novelName, String novelLanguage, double novelChapters)
     {
     name = novelName;
@@ -32,7 +47,27 @@ public class NovelRecommendation {
     int randomShortNovel = (int) (Math.random() * shortTitle.length);
     int randomFillerNovel = (int) (Math.random() * longChapters.length);
     int randomContentNovel = (int) (Math.random() * shortChapters.length);
+    int firstMusicRec = (int) (Math.random() * favSongs.length);
+    int secondMusicRec = (int) (Math.random() * favSongsPt2.length);
+    int lastMusicRec = (int) (Math.random() * favSongsPt3.length);
 
+    /**
+     * getMusicRec method for the NovelRecommendation class. This method will return a String showing the randomized
+     * music recommendations in a formatted sentence.
+     *
+     * @return returns a String containing the first music recommendation for the user.
+     */
+    public String getMusicRecs(){
+        String musicRecs = favSongs[firstMusicRec]  + ", " + favSongsPt2[secondMusicRec] + ", as well as " + favSongsPt3[lastMusicRec] +"\n";
+        return musicRecs;
+    }
+
+    /**
+     * getNovelFromWords method for the NovelRecommendation class. This method will return a String that contains a
+     * novel Recommendation based on the length of the title the user inputs.
+     *
+     * @return returns a String that contains a novel recommendation based on length of title.
+     */
     public String getNovelFromWords(){
         if (name.length() > 42){
             String bigNovel = "The recommended novel based on title inputted is: " + longTitle[randomLongNovel] + ".\n";
@@ -43,6 +78,12 @@ public class NovelRecommendation {
             return smallNovel;
         }
     }
+    /**
+     * getNovelFromLanguage method for the NovelRecommendation class. This method will return a String that contains a
+     * novel Recommendation based on the language of the novel the user inputs.
+     *
+     * @return returns a String that contains a novel recommendation based on the novel's language.
+     */
     public String getNovelFromLanguage() {
         if (language.equals("chinese")) {
             String chineseRec = "The recommended novel based on language inputted is: " + cNovels[randomCNovel] +".\n";
@@ -56,6 +97,12 @@ public class NovelRecommendation {
         }
         return "Regarding the language you inputting, we are not accepting this language at the moment.\n";
     }
+    /**
+     * getNovelFromChapters method for the NovelRecommendation class. This method will return a String that contains a
+     * novel Recommendation based on the amount of chapters the user inputs.
+     *
+     * @return returns a String that contains a novel recommendation based on the novel's amount of chapters.
+     */
     public String getNovelFromChapters(){
         if (chapters >= 700){
             String moreChapters = "The recommended novel based on chapters inputted is: " + longChapters[randomFillerNovel] + ".\n";
