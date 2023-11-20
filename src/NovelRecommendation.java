@@ -9,6 +9,13 @@ public class NovelRecommendation {
     private String language;
     private double chapters;
     private String userName;
+
+    /**
+     *The setUserName method takes the parameter yourName and assigns it to the variable userName
+     * The getUserName method returns the value of the variable yourName
+     *
+     * @param yourName represents the user's name, be it a real name or a made-up name
+     */
     public void setUserName(String yourName){
         userName = yourName;}
     public String getUserName(){
@@ -62,8 +69,8 @@ public class NovelRecommendation {
     }
 
     /**
-     * getNovelFromWords method for the NovelRecommendation class. This method will return a String that contains a
-     * novel Recommendation based on the length of the title the user inputs.
+     * The getNovelFromWords method will return a String that contains a novel Recommendation based on
+     * the length of the title the user inputs.
      *
      * @return returns a String that contains a novel recommendation based on length of title.
      */
@@ -78,8 +85,8 @@ public class NovelRecommendation {
         }
     }
     /**
-     * getNovelFromLanguage method for the NovelRecommendation class. This method will return a String that contains a
-     * novel Recommendation based on the language of the novel the user inputs.
+     * The getNovelFromLanguage method will return a String that contains a novel Recommendation based on
+     * the language of the novel the user inputs.
      *
      * @return returns a String that contains a novel recommendation based on the novel's language.
      */
@@ -97,8 +104,8 @@ public class NovelRecommendation {
         return "Regarding the language you inputting, we are not accepting this language at the moment.\n";
     }
     /**
-     * getNovelFromChapters method for the NovelRecommendation class. This method will return a String that contains a
-     * novel Recommendation based on the amount of chapters the user inputs.
+     * The getNovelFromChapters method will return a String that contains a novel Recommendation based on
+     * the amount of chapters the user inputs.
      *
      * @return returns a String that contains a novel recommendation based on the novel's amount of chapters.
      */
